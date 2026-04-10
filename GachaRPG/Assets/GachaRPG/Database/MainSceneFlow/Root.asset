@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Root
   m_EditorClassIdentifier: GachaRPG::GachaRPG.MainSceneFlow
   flows:
+  - rid: 7457456554343661656
   - rid: 7457456554343661643
   references:
     version: 2
@@ -21,13 +22,21 @@ MonoBehaviour:
       type: {class: 'CreateListButton`1[[GachaRPG.MainSceneContext, GachaRPG]]', ns: GachaRPG.HKFeedback.Actions, asm: GachaRPG}
       data:
         onCreatedFeedbacks:
-        - rid: 7457456554343661645
         - rid: 7457456554343661648
+        - rid: 7457456554343661645
     - rid: 7457456554343661645
       type: {class: 'SubscribeOnClickAsObservable`1[[GachaRPG.MainButtonContext, GachaRPG]]', ns: GachaRPG.HKFeedback.Actions, asm: GachaRPG}
       data:
-        feedbacks: []
+        feedbacks:
+        - rid: 7457456554343661654
     - rid: 7457456554343661648
       type: {class: 'SetText`1[[GachaRPG.MainButtonContext, GachaRPG]]', ns: GachaRPG.HKFeedback.Actions, asm: GachaRPG}
       data:
         message: "\u30AC\u30C1\u30E3"
+    - rid: 7457456554343661654
+      type: {class: 'BeginFlowAsync`1[[GachaRPG.MainButtonContext, GachaRPG]]', ns: GachaRPG.HKFeedback.Actions, asm: GachaRPG}
+      data:
+        flow: {fileID: 11400000, guid: 73fa0a109a3239343950f2a7ae183140, type: 2}
+    - rid: 7457456554343661656
+      type: {class: 'ClearList`1[[GachaRPG.MainSceneContext, GachaRPG]]', ns: GachaRPG.HKFeedback.Actions, asm: GachaRPG}
+      data: 
