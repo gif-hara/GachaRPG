@@ -17,13 +17,14 @@ namespace GachaRPG.HKFeedback.Actions
         public UniTask PlayAsync(TContext context, CancellationToken cancellationToken)
         {
             var button = context.Provide().Button;
-            button.OnClickAsObservable()
+            var stream = button.OnClickAsObservable()
                 .SubscribeAwait((feedbacks, context), static (_, state, ct) =>
                 {
                     var (feedbacks, context) = state;
                     return feedbacks.PlayAsync(context.Provide(), ct);
-                })
-                .RegisterTo(cancellationToken);
+                });
+            stream.RegisterTo(cancellationToken);
+            stream.RegisterTo(button.destroyCancellationToken);
             return UniTask.CompletedTask;
         }
     }
