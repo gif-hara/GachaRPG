@@ -1012,7 +1012,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2662e2941f9ce67439bdbc0763798998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: GachaRPG::GachaRPG.MainSceneController
-  entryFlow: {fileID: 11400000, guid: c9404c648528739499f0030bc0ba724f, type: 2}
+  entryFlow: {fileID: 11400000, guid: 4fc98eb8cf4b9894fb5e2e6adb03ef68, type: 2}
   uiViewList: {fileID: 594722925}
 --- !u!4 &1770371652
 Transform:
