@@ -22,12 +22,12 @@ MonoBehaviour:
       data:
         onCreatedFeedbacks:
         - rid: 7457456554343661645
+        - rid: 7457456554343661648
     - rid: 7457456554343661645
       type: {class: 'SubscribeOnClickAsObservable`1[[GachaRPG.MainButtonContext, GachaRPG]]', ns: GachaRPG.HKFeedback.Actions, asm: GachaRPG}
       data:
-        feedbacks:
-        - rid: 7457456554343661646
-    - rid: 7457456554343661646
-      type: {class: 'CreateListButton`1[[GachaRPG.MainButtonContext, GachaRPG]]', ns: GachaRPG.HKFeedback.Actions, asm: GachaRPG}
+        feedbacks: []
+    - rid: 7457456554343661648
+      type: {class: 'SetText`1[[GachaRPG.MainButtonContext, GachaRPG]]', ns: GachaRPG.HKFeedback.Actions, asm: GachaRPG}
       data:
-        onCreatedFeedbacks: []
+        message: "\u30AC\u30C1\u30E3"
