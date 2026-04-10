@@ -7,14 +7,12 @@ namespace GachaRPG
 {
     public sealed class UIElementButton : MonoBehaviour
     {
-        [SerializeField]
-        private Button button;
+        [field: SerializeField]
+        public Button Button { get; private set; }
 
-        [SerializeField]
-        private TMP_Text buttonText;
+        [field: SerializeField]
+        public TMP_Text ButtonText { get; private set; }
 
-        public void SetText(string text) => buttonText.text = text;
-
-        public Observable<Unit> OnClickAsObservable() => button.OnClickAsObservable();
+        public Observable<Unit> OnClickAsObservable() => Button.OnClickAsObservable();
     }
 }
