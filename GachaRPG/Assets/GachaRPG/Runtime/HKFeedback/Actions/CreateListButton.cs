@@ -8,15 +8,17 @@ using UnityEngine;
 namespace GachaRPG.HKFeedback.Actions
 {
     [Serializable]
-    public sealed class CreateListButton<TContext> : IFeedback<TContext> where TContext : IProvider<UIViewList>
+    public sealed class CreateListButton<TContext> : IFeedback<TContext> where TContext : IProvider<MainSceneContext>
     {
         [SerializeReference, SubclassSelector]
-        private IFeedback<UIElementButton>[] onCreatedFeedbacks;
+        private IFeedback<MainButtonContext>[] onCreatedFeedbacks;
 
         public UniTask PlayAsync(TContext context, CancellationToken cancellationToken)
         {
-            var button = context.Provide().CreateButton();
-            return onCreatedFeedbacks.PlayAsync(button, cancellationToken);
+            var mainSceneContext = context.Provide();
+            var button = mainSceneContext.UIViewList.CreateButton();
+            var mainButtonContext = new MainButtonContext(mainSceneContext, button);
+            return onCreatedFeedbacks.PlayAsync(mainButtonContext, cancellationToken);
         }
     }
 }
