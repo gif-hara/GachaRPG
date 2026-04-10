@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace GachaRPG
 {
-    public class MainSceneController : MonoBehaviour, IProvider<UIViewList>
+    public class MainSceneController : MonoBehaviour
     {
         [SerializeField]
         private MainSceneFlow entryFlow;
@@ -12,11 +12,10 @@ namespace GachaRPG
         [SerializeField]
         private UIViewList uiViewList;
 
-        UIViewList IProvider<UIViewList>.Provide() => uiViewList;
-
         private void Start()
         {
-            entryFlow.PlayAsync(this, destroyCancellationToken).Forget();
+            var context = new MainSceneContext(uiViewList);
+            entryFlow.PlayAsync(context, destroyCancellationToken).Forget();
         }
     }
 }
