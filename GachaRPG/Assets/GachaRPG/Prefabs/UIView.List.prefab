@@ -615,6 +615,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8928135908380965699, guid: d774e293ef7f0fe4cb115c6be5f735ba, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7002331010602122906}
+    - targetCorrespondingSourceObject: {fileID: 8928135908380965699, guid: d774e293ef7f0fe4cb115c6be5f735ba, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6417814952796961398}
   m_SourcePrefab: {fileID: 100100000, guid: d774e293ef7f0fe4cb115c6be5f735ba, type: 3}
 --- !u!224 &4210841247405966327 stripped
 RectTransform:
@@ -643,3 +646,17 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &6417814952796961398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5931784006776749866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e3788ac220c74c43b5a048bd56cbf24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GachaRPG::GachaRPG.UIViewList
+  buttonParent: {fileID: 3649401667913774428}
+  buttonPrefab: {fileID: 3550083937327250849, guid: e3636bae844f920429bc894b558bff2d, type: 3}
