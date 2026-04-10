@@ -1,5 +1,4 @@
 using Cysharp.Threading.Tasks;
-using HKFeedback;
 using UnityEngine;
 
 namespace GachaRPG
@@ -14,8 +13,13 @@ namespace GachaRPG
 
         private void Start()
         {
-            var context = new MainSceneContext(uiViewList);
-            entryFlow.PlayAsync(context, destroyCancellationToken).Forget();
+            BeginFlowAsync(entryFlow).Forget();
+        }
+
+        public UniTask BeginFlowAsync(MainSceneFlow flow)
+        {
+            var context = new MainSceneContext(this, uiViewList);
+            return flow.PlayAsync(context, destroyCancellationToken);
         }
     }
 }

@@ -3,7 +3,7 @@ using TMPro;
 
 namespace GachaRPG
 {
-    public readonly struct MainButtonContext : IProvider<MainButtonContext>, IProvider<MainSceneContext>, IProvider<UIElementButton>, IProvider<TMP_Text>
+    public readonly struct MainButtonContext : IProvider<MainButtonContext>, IProvider<MainSceneContext>, IProvider<UIElementButton>, IProvider<TMP_Text>, IProvider<MainSceneController>
     {
         public readonly MainSceneContext MainSceneContext { get; }
 
@@ -16,6 +16,8 @@ namespace GachaRPG
         UIElementButton IProvider<UIElementButton>.Provide() => Button;
 
         TMP_Text IProvider<TMP_Text>.Provide() => Button.ButtonText;
+
+        MainSceneController IProvider<MainSceneController>.Provide() => MainSceneContext.MainSceneController;
 
         public MainButtonContext(MainSceneContext mainSceneContext, UIElementButton button)
         {
