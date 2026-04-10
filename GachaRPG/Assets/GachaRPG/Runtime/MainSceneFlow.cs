@@ -10,11 +10,11 @@ namespace GachaRPG
     public sealed class MainSceneFlow : ScriptableObject
     {
         [SerializeReference, SubclassSelector]
-        private IFeedback<MainSceneController>[] flows;
+        private IFeedback<MainSceneContext>[] flows;
 
-        public UniTask PlayAsync(MainSceneController controller, CancellationToken cancellationToken)
+        public UniTask PlayAsync(MainSceneContext context, CancellationToken cancellationToken)
         {
-            return flows.PlayAsync(controller, cancellationToken);
+            return flows.PlayAsync(context, cancellationToken);
         }
     }
 }
