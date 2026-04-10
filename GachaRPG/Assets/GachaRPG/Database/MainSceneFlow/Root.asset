@@ -13,22 +13,21 @@ MonoBehaviour:
   m_Name: Root
   m_EditorClassIdentifier: GachaRPG::GachaRPG.MainSceneFlow
   flows:
-  - rid: 7457456546831663192
+  - rid: 7457456554343661643
   references:
     version: 2
     RefIds:
-    - rid: 7457456546831663192
-      type: {class: 'ConditionFeedback`1[[GachaRPG.MainSceneController, GachaRPG]]', ns: HKFeedback.Actions, asm: HKFeedback}
+    - rid: 7457456554343661643
+      type: {class: 'CreateListButton`1[[GachaRPG.MainSceneContext, GachaRPG]]', ns: GachaRPG.HKFeedback.Actions, asm: GachaRPG}
       data:
-        condition:
-          rid: 7457456546831663368
+        onCreatedFeedbacks:
+        - rid: 7457456554343661645
+    - rid: 7457456554343661645
+      type: {class: 'SubscribeOnClickAsObservable`1[[GachaRPG.MainButtonContext, GachaRPG]]', ns: GachaRPG.HKFeedback.Actions, asm: GachaRPG}
+      data:
         feedbacks:
-        - rid: 7457456546831663377
-    - rid: 7457456546831663368
-      type: {class: 'Constant`1[[GachaRPG.MainSceneController, GachaRPG]]', ns: HKFeedback.Conditions, asm: HKFeedback}
-      data:
-        value: 1
-    - rid: 7457456546831663377
-      type: {class: 'CreateListButton`1[[GachaRPG.MainSceneController, GachaRPG]]', ns: GachaRPG.HKFeedback.Actions, asm: GachaRPG}
+        - rid: 7457456554343661646
+    - rid: 7457456554343661646
+      type: {class: 'CreateListButton`1[[GachaRPG.MainButtonContext, GachaRPG]]', ns: GachaRPG.HKFeedback.Actions, asm: GachaRPG}
       data:
         onCreatedFeedbacks: []
