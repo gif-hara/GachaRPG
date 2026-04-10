@@ -6,7 +6,7 @@ using HKFeedback;
 namespace GachaRPG.HKFeedback.Actions
 {
     [Serializable]
-    public sealed class CreateButton<TContext> : IFeedback<TContext>
+    public sealed class CreateListButton<TContext> : IFeedback<TContext>
     {
         public UniTask PlayAsync(TContext context, CancellationToken cancellationToken)
         {
