@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7ab3781fa25ec6408e90b21ad24c3b7, type: 3}
+  m_Name: GachaElement.1
+  m_EditorClassIdentifier: GachaRPG::GachaRPG.GachaElement
+  elementName: "\u30C6\u30B9\u30C8\u30AC\u30C1\u30E3\u30A8\u30EC\u30E1\u30F3\u30C8"
+  elements:
+  - <PassiveSkill>k__BackingField: {fileID: 11400000, guid: e95aeeeaab19d41449f9eda42386c219, type: 2}
+    <Weight>k__BackingField: 100
+  - <PassiveSkill>k__BackingField: {fileID: 11400000, guid: 00ab2fd831010ae46bb16f27998786c8, type: 2}
+    <Weight>k__BackingField: 100
+  - <PassiveSkill>k__BackingField: {fileID: 11400000, guid: 6b454cb81d7c55f4eaea832b40a0ecf5, type: 2}
+    <Weight>k__BackingField: 100
+  - <PassiveSkill>k__BackingField: {fileID: 11400000, guid: 31ece959b027e3342b0dfd902ff89a4b, type: 2}
+    <Weight>k__BackingField: 100
+  - <PassiveSkill>k__BackingField: {fileID: 11400000, guid: 387d3c0884d70fc42a7ce25d91accfef, type: 2}
+    <Weight>k__BackingField: 100
