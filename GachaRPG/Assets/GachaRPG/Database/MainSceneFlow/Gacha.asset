@@ -29,7 +29,8 @@ MonoBehaviour:
     - rid: 7457456554343661645
       type: {class: 'SubscribeOnClickAsObservable`1[[GachaRPG.MainButtonContext, GachaRPG]]', ns: GachaRPG.HKFeedback.Actions, asm: GachaRPG}
       data:
-        feedbacks: []
+        feedbacks:
+        - rid: 7457456554343661697
     - rid: 7457456554343661648
       type: {class: 'SetText`1[[GachaRPG.MainButtonContext, GachaRPG]]', ns: GachaRPG.HKFeedback.Actions, asm: GachaRPG}
       data:
@@ -65,3 +66,6 @@ MonoBehaviour:
       type: {class: 'BeginFlowAsync`1[[GachaRPG.MainButtonContext, GachaRPG]]', ns: GachaRPG.HKFeedback.Actions, asm: GachaRPG}
       data:
         flow: {fileID: 11400000, guid: 4fc98eb8cf4b9894fb5e2e6adb03ef68, type: 2}
+    - rid: 7457456554343661697
+      type: {class: 'InvokeGacha`1[[GachaRPG.MainButtonContext, GachaRPG]]', ns: GachaRPG.HKFeedback.Actions, asm: GachaRPG}
+      data: 
