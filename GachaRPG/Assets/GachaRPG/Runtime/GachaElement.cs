@@ -8,6 +8,9 @@ namespace GachaRPG
     public class GachaElement : ScriptableObject
     {
         [SerializeField]
+        private string elementName;
+
+        [SerializeField]
         private Element[] elements;
 
         public PassiveSkill Lottery() => elements.Lottery(x => x.Weight).PassiveSkill;
