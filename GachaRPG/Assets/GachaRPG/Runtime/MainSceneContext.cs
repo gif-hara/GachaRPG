@@ -6,6 +6,8 @@ namespace GachaRPG
     {
         public readonly MainSceneController MainSceneController { get; }
 
+        public readonly UserData UserData { get; }
+
         public readonly UIViewList UIViewList { get; }
 
         MainSceneContext IProvider<MainSceneContext>.Provide() => this;
@@ -14,9 +16,10 @@ namespace GachaRPG
 
         MainSceneController IProvider<MainSceneController>.Provide() => MainSceneController;
 
-        public MainSceneContext(MainSceneController mainSceneController, UIViewList uiViewList)
+        public MainSceneContext(MainSceneController mainSceneController, UserData userData, UIViewList uiViewList)
         {
             MainSceneController = mainSceneController;
+            UserData = userData;
             UIViewList = uiViewList;
         }
     }
