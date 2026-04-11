@@ -8,8 +8,8 @@ namespace GachaRPG
     [CreateAssetMenu(fileName = "PassiveSkill", menuName = "GachaRPG/Passive Skill")]
     public class PassiveSkill : ScriptableObject
     {
-        [SerializeField]
-        private string skillName;
+        [field: SerializeField]
+        public string SkillName { get; private set; }
 
         [SerializeReference, SubclassSelector]
         private IFeedback<PassiveSkillContext>[] actions;
