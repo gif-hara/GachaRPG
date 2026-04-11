@@ -1014,11 +1014,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: GachaRPG::GachaRPG.MainSceneController
   initialCharacterSpecs:
   - Name: "\u30D7\u30EC\u30A4\u30E4\u30FC1"
-    HitPoint: 100
+    HitPoint: 200
     PhysicalAttack: 100
     MagicAttack: 100
-    PhysicalDefense: 65
-    MagicDefense: 65
+    PhysicalDefense: 100
+    MagicDefense: 100
     Speed: 100
   entryFlow: {fileID: 11400000, guid: 4fc98eb8cf4b9894fb5e2e6adb03ef68, type: 2}
   uiViewList: {fileID: 594722925}
