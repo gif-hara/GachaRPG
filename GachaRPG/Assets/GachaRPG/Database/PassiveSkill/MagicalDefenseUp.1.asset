@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 210e37ebfbc5c7c40897bc13933d28c1, type: 3}
   m_Name: MagicalDefenseUp.1
   m_EditorClassIdentifier: GachaRPG::GachaRPG.PassiveSkill
-  skillName: "\u9B54\u6CD5\u9632\u5FA1\u529BUP+1"
+  <SkillName>k__BackingField: "\u9B54\u6CD5\u9632\u5FA1\u529BUP+1"
   actions: []
   references:
     version: 2
