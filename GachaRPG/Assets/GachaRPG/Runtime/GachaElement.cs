@@ -13,7 +13,7 @@ namespace GachaRPG
         public PassiveSkill Lottery() => elements.Lottery(x => x.Weight).PassiveSkill;
 
         [Serializable]
-        public class Element
+        public sealed class Element
         {
             [field: SerializeField]
             public PassiveSkill PassiveSkill { get; private set; }
