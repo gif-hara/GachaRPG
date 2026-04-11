@@ -1,3 +1,5 @@
+using System.Linq;
+
 namespace GachaRPG
 {
     public class GachaResult
@@ -7,6 +9,11 @@ namespace GachaRPG
         public GachaResult(PassiveSkill[] passiveSkills)
         {
             PassiveSkills = passiveSkills;
+        }
+
+        public override string ToString()
+        {
+            return $"GachaResult: {string.Join(", ", PassiveSkills.Select(x => x.SkillName))}";
         }
     }
 }
