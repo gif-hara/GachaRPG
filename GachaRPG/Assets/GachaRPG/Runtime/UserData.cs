@@ -7,12 +7,15 @@ namespace GachaRPG
     {
         public List<Character> Characters { get; private set; } = new();
 
+        public Gacha Gacha { get; }
+
         private readonly List<GachaResult> gachaResults = new();
 
         public List<GachaResult> GachaResults => gachaResults;
 
-        public UserData()
+        public UserData(Gacha gacha)
         {
+            Gacha = gacha;
         }
 
         public void AddCharacter(Character character)
