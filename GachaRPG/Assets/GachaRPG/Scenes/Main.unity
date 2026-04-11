@@ -1012,6 +1012,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2662e2941f9ce67439bdbc0763798998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: GachaRPG::GachaRPG.MainSceneController
+  gameRule: {fileID: 11400000, guid: c910229a2b1a9214782b856828d30579, type: 2}
   initialCharacterSpecs:
   - Name: "\u30D7\u30EC\u30A4\u30E4\u30FC1"
     HitPoint: 200
@@ -1020,6 +1021,8 @@ MonoBehaviour:
     PhysicalDefense: 100
     MagicDefense: 100
     Speed: 100
+  initialGachaElements:
+  - {fileID: 11400000, guid: 42cae125bf0c81d46a41a4c687b3aaf1, type: 2}
   entryFlow: {fileID: 11400000, guid: 4fc98eb8cf4b9894fb5e2e6adb03ef68, type: 2}
   uiViewList: {fileID: 594722925}
 --- !u!4 &1770371652
