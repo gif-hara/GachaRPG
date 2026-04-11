@@ -19,7 +19,11 @@ namespace GachaRPG
 
         private void Start()
         {
-            userData = new UserData(initialCharacterSpecs.Select(spec => new Character(spec)).ToArray());
+            userData = new UserData();
+            foreach (var spec in initialCharacterSpecs)
+            {
+                userData.AddCharacter(new Character(spec));
+            }
             BeginFlowAsync(entryFlow).Forget();
         }
 
@@ -27,6 +31,12 @@ namespace GachaRPG
         {
             var context = new MainSceneContext(this, userData, uiViewList);
             return flow.PlayAsync(context, destroyCancellationToken);
+        }
+
+        public GachaResult InvokeGacha(GachaElement[] elements)
+        {
+            var passiveSkills = elements.Select(x => x.Lottery()).ToArray();
+            return new GachaResult(passiveSkills);
         }
     }
 }

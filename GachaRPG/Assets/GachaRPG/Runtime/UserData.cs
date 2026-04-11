@@ -1,14 +1,28 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace GachaRPG
 {
     public sealed class UserData
     {
-        public Character[] Characters { get; private set; }
+        public List<Character> Characters { get; private set; } = new();
 
-        public UserData(Character[] characters)
+        private readonly List<GachaResult> gachaResults = new();
+
+        public List<GachaResult> GachaResults => gachaResults;
+
+        public UserData()
         {
-            Characters = characters;
+        }
+
+        public void AddCharacter(Character character)
+        {
+            Characters.Add(character);
+        }
+
+        public void AddGachaResult(GachaResult result)
+        {
+            gachaResults.Add(result);
         }
     }
 }
