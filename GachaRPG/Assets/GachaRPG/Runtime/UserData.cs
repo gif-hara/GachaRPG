@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace GachaRPG
 {
@@ -9,9 +8,7 @@ namespace GachaRPG
 
         public Gacha Gacha { get; }
 
-        private readonly List<GachaResult> gachaResults = new();
-
-        public List<GachaResult> GachaResults => gachaResults;
+        public List<GachaResult> GachaResults { get; } = new();
 
         public UserData(Gacha gacha)
         {
@@ -25,7 +22,7 @@ namespace GachaRPG
 
         public void AddGachaResult(GachaResult result)
         {
-            gachaResults.Add(result);
+            GachaResults.Add(result);
         }
     }
 }
