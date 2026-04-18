@@ -1021,7 +1021,14 @@ MonoBehaviour:
     PhysicalDefense: 100
     MagicDefense: 100
     Speed: 100
-  initialInstanceGachaElements:
+  initialInstanceGachaElementsToUserData:
+  - gachaElementId: GachaElement.1
+    level: 0
+  - gachaElementId: GachaElement.2
+    level: 0
+  - gachaElementId: GachaElement.3
+    level: 0
+  initialInstanceGachaElementsToGacha:
   - gachaElementId: GachaElement.1
     level: 0
   - gachaElementId: GachaElement.2
