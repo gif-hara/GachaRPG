@@ -1021,9 +1021,11 @@ MonoBehaviour:
     PhysicalDefense: 100
     MagicDefense: 100
     Speed: 100
-  initialGachaElements:
-  - {fileID: 11400000, guid: 42cae125bf0c81d46a41a4c687b3aaf1, type: 2}
-  - {fileID: 11400000, guid: 5d6593ee55d8aca4e87186a65959ac27, type: 2}
+  initialInstanceGachaElements:
+  - gachaElementId: GachaElement.1
+    level: 0
+  - gachaElementId: GachaElement.2
+    level: 0
   entryFlow: {fileID: 11400000, guid: 4fc98eb8cf4b9894fb5e2e6adb03ef68, type: 2}
   uiViewList: {fileID: 594722925}
 --- !u!4 &1770371652

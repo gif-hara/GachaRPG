@@ -16,7 +16,7 @@ namespace GachaRPG
         private CharacterSpec[] initialCharacterSpecs;
 
         [SerializeField]
-        private GachaElement[] initialGachaElements;
+        private InstanceGachaElement[] initialInstanceGachaElements;
 
         [SerializeField]
         private MainSceneFlow entryFlow;
@@ -33,14 +33,14 @@ namespace GachaRPG
             TinyServiceLocator.Register(gameRule)
                 .RegisterTo(destroyCancellationToken);
             var gacha = new Gacha(gameRule.GachaElementSize);
-            for (var i = 0; i < initialGachaElements.Length; i++)
-            {
-                gacha.SetGachaElement(i, initialGachaElements[i]);
-            }
             userData = new UserData(gacha);
             foreach (var spec in initialCharacterSpecs)
             {
                 userData.AddCharacter(new Character(spec));
+            }
+            foreach (var element in initialInstanceGachaElements)
+            {
+                userData.AddInstanceGachaElement(element);
             }
             PushFlowAsync(entryFlow).Forget();
         }

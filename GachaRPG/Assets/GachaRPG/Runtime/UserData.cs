@@ -8,7 +8,7 @@ namespace GachaRPG
 
         public Gacha Gacha { get; }
 
-        public List<InstanceGachaElement> GachaElements { get; } = new();
+        public InstanceGachaElement.DictionaryList GachaElements { get; } = new();
 
         public List<GachaResult> GachaResults { get; } = new();
 

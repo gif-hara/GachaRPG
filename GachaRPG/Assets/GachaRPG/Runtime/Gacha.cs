@@ -7,16 +7,20 @@ namespace GachaRPG
 {
     public sealed class Gacha
     {
-        private readonly GachaElement[] elements;
+        private readonly List<InstanceGachaElement> elements;
 
         public Gacha(int elementSize)
         {
-            elements = new GachaElement[elementSize];
+            elements = new List<InstanceGachaElement>();
+            for (int i = 0; i < elementSize; i++)
+            {
+                elements.Add(null);
+            }
         }
 
-        public void SetGachaElement(int index, GachaElement element)
+        public void SetGachaElement(int index, InstanceGachaElement element)
         {
-            if (index < 0 || index >= elements.Length)
+            if (index < 0 || index >= elements.Count)
             {
                 Debug.LogError($"Index {index} is out of range for gacha elements.");
                 return;
@@ -27,13 +31,13 @@ namespace GachaRPG
         public GachaResult Invoke()
         {
             var passiveSkills = new List<InstancePassiveSkill>();
-            for (int i = 0; i < elements.Length; i++)
+            for (int i = 0; i < elements.Count; i++)
             {
                 if (elements[i] == null)
                 {
                     continue;
                 }
-                passiveSkills.Add(new InstancePassiveSkill(elements[i].Lottery().name, 0));
+                passiveSkills.Add(elements[i].Lottery());
             }
             return new GachaResult(passiveSkills);
         }
