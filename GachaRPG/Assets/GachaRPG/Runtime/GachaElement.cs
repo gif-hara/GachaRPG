@@ -7,8 +7,8 @@ namespace GachaRPG
     [CreateAssetMenu(fileName = "GachaElement", menuName = "GachaRPG/Gacha Element")]
     public class GachaElement : ScriptableObject
     {
-        [SerializeField]
-        private string elementName;
+        [field: SerializeField]
+        public string ElementName { get; private set; }
 
         [SerializeField]
         private Element[] elements;
