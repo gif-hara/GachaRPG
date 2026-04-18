@@ -54,13 +54,13 @@ namespace GachaRPG
 
         public UniTask PopFlowAsync()
         {
-            if (flowStack.Count == 0)
+            if (flowStack.Count <= 1)
             {
                 return UniTask.CompletedTask;
             }
-            var flow = flowStack.Pop();
+            flowStack.Pop();
             var context = new MainSceneContext(this, gameRule, userData, uiViewList);
-            return flow.PlayAsync(context, destroyCancellationToken);
+            return flowStack.Peek().PlayAsync(context, destroyCancellationToken);
         }
     }
 }
