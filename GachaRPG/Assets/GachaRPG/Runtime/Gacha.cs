@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Threading;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace GachaRPG
@@ -22,18 +24,18 @@ namespace GachaRPG
             elements[index] = element;
         }
 
-        public GachaResult Invoke()
+        public GachaResult Invoke(CancellationToken cancellationToken)
         {
-            var passiveSkills = new List<PassiveSkill>();
+            var passiveSkills = new List<InstancePassiveSkill>();
             for (int i = 0; i < elements.Length; i++)
             {
                 if (elements[i] == null)
                 {
                     continue;
                 }
-                passiveSkills.Add(elements[i].Lottery());
+                passiveSkills.Add(new InstancePassiveSkill(elements[i].Lottery().name, 0));
             }
-            return new GachaResult(passiveSkills.ToArray());
+            return new GachaResult(passiveSkills);
         }
     }
 }
