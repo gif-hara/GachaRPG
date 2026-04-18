@@ -34,7 +34,7 @@ MonoBehaviour:
       data:
         message: "\u30AC\u30C1\u30E3"
     - rid: 7457456554343661654
-      type: {class: 'BeginFlowAsync`1[[GachaRPG.MainButtonContext, GachaRPG]]', ns: GachaRPG.HKFeedback.Actions, asm: GachaRPG}
+      type: {class: 'PushFlowAsync`1[[GachaRPG.MainButtonContext, GachaRPG]]', ns: GachaRPG.HKFeedback.Actions, asm: GachaRPG}
       data:
         flow: {fileID: 11400000, guid: 73fa0a109a3239343950f2a7ae183140, type: 2}
     - rid: 7457456554343661656

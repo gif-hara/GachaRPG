@@ -7,7 +7,7 @@ using UnityEngine;
 namespace GachaRPG.HKFeedback.Actions
 {
     [Serializable]
-    public sealed class BeginFlowAsync<TContext> : IFeedback<TContext> where TContext : IProvider<MainSceneController>
+    public sealed class PushFlowAsync<TContext> : IFeedback<TContext> where TContext : IProvider<MainSceneController>
     {
         [SerializeField]
         private MainSceneFlow flow;
