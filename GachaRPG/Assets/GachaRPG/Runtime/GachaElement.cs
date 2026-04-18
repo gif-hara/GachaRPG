@@ -1,7 +1,6 @@
 using System;
 using HK;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 
 namespace GachaRPG
 {
