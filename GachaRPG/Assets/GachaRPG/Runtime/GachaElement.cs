@@ -1,6 +1,7 @@
 using System;
 using HK;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace GachaRPG
 {
@@ -23,6 +24,14 @@ namespace GachaRPG
 
             [field: SerializeField]
             public int Weight { get; private set; }
+        }
+
+        [Serializable]
+        public sealed class DictionaryList : DictionaryList<string, GachaElement>
+        {
+            public DictionaryList() : base(element => element.name)
+            {
+            }
         }
     }
 }
