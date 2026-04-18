@@ -16,6 +16,9 @@ namespace GachaRPG
         [field: SerializeField]
         public PassiveSkill.DictionaryList PassiveSkills { get; private set; } = null!;
 
+        [field: SerializeField]
+        public GachaElement.DictionaryList GachaElements { get; private set; } = null!;
+
         [ContextMenu("Setup")]
         private void Setup()
         {
@@ -31,6 +34,21 @@ namespace GachaRPG
                 if (!PassiveSkills.ContainsKey(passiveSkill.name))
                 {
                     PassiveSkills.Add(passiveSkill);
+                }
+            }
+
+            var gachaElements = AssetDatabase.FindAssets("t:GachaElement", new[] { "Assets/GachaRPG/Database/GachaElement" })
+                .Select(guid => AssetDatabase.LoadAssetAtPath<GachaElement>(AssetDatabase.GUIDToAssetPath(guid)))
+                .ToArray();
+            if (GachaElements == null)
+            {
+                GachaElements = new GachaElement.DictionaryList();
+            }
+            foreach (var gachaElement in gachaElements)
+            {
+                if (!GachaElements.ContainsKey(gachaElement.name))
+                {
+                    GachaElements.Add(gachaElement);
                 }
             }
         }
