@@ -24,7 +24,7 @@ namespace GachaRPG
             elements[index] = element;
         }
 
-        public GachaResult Invoke(CancellationToken cancellationToken)
+        public GachaResult Invoke()
         {
             var passiveSkills = new List<InstancePassiveSkill>();
             for (int i = 0; i < elements.Length; i++)
