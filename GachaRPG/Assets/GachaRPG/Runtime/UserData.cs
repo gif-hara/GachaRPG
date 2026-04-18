@@ -8,7 +8,7 @@ namespace GachaRPG
 
         public Gacha Gacha { get; }
 
-        public List<GachaElement> GachaElements { get; } = new();
+        public List<InstanceGachaElement> GachaElements { get; } = new();
 
         public List<GachaResult> GachaResults { get; } = new();
 
@@ -22,7 +22,7 @@ namespace GachaRPG
             Characters.Add(character);
         }
 
-        public void AddGachaElement(GachaElement element)
+        public void AddInstanceGachaElement(InstanceGachaElement element)
         {
             GachaElements.Add(element);
         }
