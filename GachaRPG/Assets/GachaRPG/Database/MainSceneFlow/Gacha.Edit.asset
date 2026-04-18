@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 611ca0f8fa9f32d44a5e710ae1a079fb, type: 3}
+  m_Name: Gacha.Edit
+  m_EditorClassIdentifier: GachaRPG::GachaRPG.MainSceneFlow
+  flows:
+  - rid: 7457456554343661657
+  - rid: 7457456728243699788
+  - rid: 7457456728243699790
+  references:
+    version: 2
+    RefIds:
+    - rid: 7457456554343661657
+      type: {class: 'ClearList`1[[GachaRPG.MainSceneContext, GachaRPG]]', ns: GachaRPG.HKFeedback.Actions, asm: GachaRPG}
+      data: 
+    - rid: 7457456728243699788
+      type: {class: 'Forget`1[[GachaRPG.MainSceneContext, GachaRPG]]', ns: HKFeedback.Actions, asm: HKFeedback}
+      data:
+        feedback:
+          rid: 7457456728243699789
+    - rid: 7457456728243699789
+      type: {class: 'SelectUserDataGachaIndexAsync`1[[GachaRPG.MainSceneContext, GachaRPG]]', ns: GachaRPG.HKFeedback.Actions, asm: GachaRPG}
+      data: 
+    - rid: 7457456728243699790
+      type: {class: 'CreateListButton`1[[GachaRPG.MainSceneContext, GachaRPG]]', ns: GachaRPG.HKFeedback.Actions, asm: GachaRPG}
+      data:
+        onCreatedFeedbacks:
+        - rid: 7457456728243699791
+        - rid: 7457456728243699795
+    - rid: 7457456728243699791
+      type: {class: 'SetText`1[[GachaRPG.MainButtonContext, GachaRPG]]', ns: GachaRPG.HKFeedback.Actions, asm: GachaRPG}
+      data:
+        message: "\u623B\u308B"
+    - rid: 7457456728243699795
+      type: {class: 'SubscribeOnClickAsObservable`1[[GachaRPG.MainButtonContext, GachaRPG]]', ns: GachaRPG.HKFeedback.Actions, asm: GachaRPG}
+      data:
+        feedbacks:
+        - rid: 7457456728243699796
+    - rid: 7457456728243699796
+      type: {class: 'PopFlowAsync`1[[GachaRPG.MainButtonContext, GachaRPG]]', ns: GachaRPG.HKFeedback.Actions, asm: GachaRPG}
+      data: 
