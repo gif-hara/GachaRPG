@@ -7,6 +7,8 @@ namespace GachaRPG
     {
         public List<InstanceGachaElement> Elements { get; }
 
+        public int SelectElementIndex { get; set; }
+
         public Gacha(int elementSize)
         {
             Elements = new List<InstanceGachaElement>();
