@@ -19,5 +19,13 @@ namespace GachaRPG
             var passiveSkill = gachaElement.Lottery();
             return new InstancePassiveSkill(passiveSkill.name, level);
         }
+
+        [Serializable]
+        public sealed class DictionaryList : DictionaryList<string, InstanceGachaElement>
+        {
+            public DictionaryList() : base(element => element.gachaElementId)
+            {
+            }
+        }
     }
 }
