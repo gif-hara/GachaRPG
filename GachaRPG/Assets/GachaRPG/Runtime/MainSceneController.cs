@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using HK;
 using R3;
@@ -24,6 +26,8 @@ namespace GachaRPG
 
         private UserData userData;
 
+        private readonly Stack<MainSceneFlow> flowStack = new();
+
         private void Start()
         {
             TinyServiceLocator.Register(gameRule)
@@ -38,11 +42,23 @@ namespace GachaRPG
             {
                 userData.AddCharacter(new Character(spec));
             }
-            BeginFlowAsync(entryFlow).Forget();
+            PushFlowAsync(entryFlow).Forget();
         }
 
-        public UniTask BeginFlowAsync(MainSceneFlow flow)
+        public UniTask PushFlowAsync(MainSceneFlow flow)
         {
+            flowStack.Push(flow);
+            var context = new MainSceneContext(this, gameRule, userData, uiViewList);
+            return flow.PlayAsync(context, destroyCancellationToken);
+        }
+
+        public UniTask PopFlowAsync()
+        {
+            if (flowStack.Count == 0)
+            {
+                return UniTask.CompletedTask;
+            }
+            var flow = flowStack.Pop();
             var context = new MainSceneContext(this, gameRule, userData, uiViewList);
             return flow.PlayAsync(context, destroyCancellationToken);
         }

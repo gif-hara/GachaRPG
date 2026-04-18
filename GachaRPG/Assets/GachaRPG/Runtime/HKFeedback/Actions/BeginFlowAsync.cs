@@ -14,7 +14,7 @@ namespace GachaRPG.HKFeedback.Actions
 
         public UniTask PlayAsync(TContext context, CancellationToken cancellationToken)
         {
-            return context.Provide().BeginFlowAsync(flow);
+            return context.Provide().PushFlowAsync(flow);
         }
     }
 }
