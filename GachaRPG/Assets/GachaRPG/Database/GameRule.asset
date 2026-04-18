@@ -14,3 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: GachaRPG::GachaRPG.GameRule
   <UserPartySize>k__BackingField: 3
   <GachaElementSize>k__BackingField: 3
+  <PassiveSkills>k__BackingField:
+    list:
+    - {fileID: 11400000, guid: 1e442c02a3ea32841a6633a73eb1c459, type: 2}
+    - {fileID: 11400000, guid: faa2cc59d6ea3ec46b58b91f743cb8fc, type: 2}
+    - {fileID: 11400000, guid: 53a372907c1b0c841aa8bffb91588d83, type: 2}
+    - {fileID: 11400000, guid: 4541ed56bbafb514ab10eeb107d81d46, type: 2}
+    - {fileID: 11400000, guid: 292c1bba0af821f4fbbde9a0cc8bb682, type: 2}
+    - {fileID: 11400000, guid: 3074a7bd7cf6a844db7890a3183eab9f, type: 2}
+    - {fileID: 11400000, guid: e95aeeeaab19d41449f9eda42386c219, type: 2}
+    - {fileID: 11400000, guid: 00ab2fd831010ae46bb16f27998786c8, type: 2}
+    - {fileID: 11400000, guid: 6b454cb81d7c55f4eaea832b40a0ecf5, type: 2}
+    - {fileID: 11400000, guid: 31ece959b027e3342b0dfd902ff89a4b, type: 2}
+    - {fileID: 11400000, guid: 387d3c0884d70fc42a7ce25d91accfef, type: 2}
+  <GachaElements>k__BackingField:
+    list:
+    - {fileID: 11400000, guid: 42cae125bf0c81d46a41a4c687b3aaf1, type: 2}
+    - {fileID: 11400000, guid: 5d6593ee55d8aca4e87186a65959ac27, type: 2}
+    - {fileID: 11400000, guid: 486cef5772a2b574d940caf5ca130fad, type: 2}
