@@ -21,7 +21,7 @@ namespace GachaRPG.HKFeedback.Actions
                 {
                     var button = mainSceneContext.UIViewList.CreateButton();
                     var gachaElement = mainSceneContext.UserData.Gacha.Elements[i];
-                    button.ButtonText.SetText($"[{i}] {(gachaElement == null ? "" : gachaElement.GachaElement.ElementName)}");
+                    button.ButtonText.SetText($"[{i}] {(gachaElement == null ? "-----" : gachaElement.GachaElement.ElementName)}");
                     buttons.Add(button);
                 }
 
