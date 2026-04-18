@@ -1,19 +1,20 @@
+using System.Collections.Generic;
 using System.Linq;
 
 namespace GachaRPG
 {
     public class GachaResult
     {
-        public PassiveSkill[] PassiveSkills { get; }
+        public List<InstancePassiveSkill> PassiveSkills { get; }
 
-        public GachaResult(PassiveSkill[] passiveSkills)
+        public GachaResult(List<InstancePassiveSkill> passiveSkills)
         {
             PassiveSkills = passiveSkills;
         }
 
         public override string ToString()
         {
-            return $"GachaResult: {string.Join(", ", PassiveSkills.Select(x => x.SkillName))}";
+            return $"GachaResult: {string.Join(", ", PassiveSkills.Select(x => x.PassiveSkill.SkillName))}";
         }
     }
 }
