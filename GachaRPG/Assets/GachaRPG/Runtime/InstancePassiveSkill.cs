@@ -13,7 +13,9 @@ namespace GachaRPG
         [field: SerializeField]
         public int Level { get; private set; }
 
-        public PassiveSkill PassiveSkill => TinyServiceLocator.Resolve<GameRule>().PassiveSkills.Get(passiveSkillId);
+        private PassiveSkill cachedPassiveSkill;
+
+        public PassiveSkill PassiveSkill => cachedPassiveSkill ??= TinyServiceLocator.Resolve<GameRule>().PassiveSkills.Get(passiveSkillId);
 
         public InstancePassiveSkill(string passiveSkillId, int level)
         {
