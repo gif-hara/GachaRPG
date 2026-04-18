@@ -8,6 +8,8 @@ namespace GachaRPG
 
         public Gacha Gacha { get; }
 
+        public List<GachaElement> GachaElements { get; } = new();
+
         public List<GachaResult> GachaResults { get; } = new();
 
         public UserData(Gacha gacha)
@@ -18,6 +20,11 @@ namespace GachaRPG
         public void AddCharacter(Character character)
         {
             Characters.Add(character);
+        }
+
+        public void AddGachaElement(GachaElement element)
+        {
+            GachaElements.Add(element);
         }
 
         public void AddGachaResult(GachaResult result)
