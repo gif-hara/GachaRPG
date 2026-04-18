@@ -1,4 +1,6 @@
 using Cysharp.Threading.Tasks;
+using HK;
+using R3;
 using UnityEngine;
 
 namespace GachaRPG
@@ -24,6 +26,8 @@ namespace GachaRPG
 
         private void Start()
         {
+            TinyServiceLocator.Register(gameRule)
+                .RegisterTo(destroyCancellationToken);
             var gacha = new Gacha(gameRule.GachaElementSize);
             for (var i = 0; i < initialGachaElements.Length; i++)
             {
