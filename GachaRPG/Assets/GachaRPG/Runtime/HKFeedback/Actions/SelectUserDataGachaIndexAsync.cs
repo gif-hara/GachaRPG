@@ -1,9 +1,7 @@
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using HKFeedback;
-using R3;
 using UnityEngine;
 
 namespace GachaRPG.HKFeedback.Actions
@@ -16,17 +14,8 @@ namespace GachaRPG.HKFeedback.Actions
             try
             {
                 var mainSceneContext = context.Provide();
-                var buttons = new List<UIElementButton>();
-                for (var i = 0; i < mainSceneContext.UserData.Gacha.Elements.Count; i++)
-                {
-                    var button = mainSceneContext.UIViewList.CreateButton();
-                    var gachaElement = mainSceneContext.UserData.Gacha.Elements[i];
-                    button.ButtonText.SetText($"[{i}] {(gachaElement == null ? "-----" : gachaElement.GachaElement.ElementName)}");
-                    buttons.Add(button);
-                }
-
-                var result = await UniTask.WhenAny(buttons.Select(x => x.OnClickAsObservable().FirstAsync(cancellationToken).AsUniTask()));
-                mainSceneContext.MainSceneController.SelectedGacha_GachaElementIndex = result.winArgumentIndex;
+                var result = await mainSceneContext.UIViewList.SelectGachaElementIndexAsync(mainSceneContext.UserData.Gacha, cancellationToken);
+                mainSceneContext.MainSceneController.SelectedGacha_GachaElementIndex = result;
             }
             catch (OperationCanceledException)
             {
