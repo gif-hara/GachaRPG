@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using R3;
-using UnityEngine;
 
 namespace GachaRPG
 {
@@ -21,6 +20,20 @@ namespace GachaRPG
 
             return UniTask.WhenAny(buttons.Select(x => x.OnClickAsObservable().FirstAsync(cancellationToken).AsUniTask()))
                 .ContinueWith(result => result.winArgumentIndex);
+        }
+
+        public static UniTask<InstanceGachaElement> SelectInstanceGachaElementAsync(this UIViewList uiViewList, InstanceGachaElement.DictionaryList elements, CancellationToken cancellationToken)
+        {
+            var buttons = new List<UIElementButton>();
+            foreach (var element in elements.List)
+            {
+                var button = uiViewList.CreateButton();
+                button.ButtonText.SetText(element.GachaElement.ElementName);
+                buttons.Add(button);
+            }
+
+            return UniTask.WhenAny(buttons.Select(x => x.OnClickAsObservable().FirstAsync(cancellationToken).AsUniTask()))
+                .ContinueWith(result => elements.List[result.winArgumentIndex]);
         }
     }
 }
