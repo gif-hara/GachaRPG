@@ -30,6 +30,8 @@ namespace GachaRPG
 
         private readonly Stack<MainSceneFlow> flowStack = new();
 
+        public int SelectedGacha_GachaElementIndex { get; set; }
+
         private void Start()
         {
             TinyServiceLocator.Register(gameRule)

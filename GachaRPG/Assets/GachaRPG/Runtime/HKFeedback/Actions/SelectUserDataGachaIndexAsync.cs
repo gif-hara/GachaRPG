@@ -26,7 +26,7 @@ namespace GachaRPG.HKFeedback.Actions
                 }
 
                 var result = await UniTask.WhenAny(buttons.Select(x => x.OnClickAsObservable().FirstAsync(cancellationToken).AsUniTask()));
-                mainSceneContext.UserData.Gacha.SelectElementIndex = result.winArgumentIndex;
+                mainSceneContext.MainSceneController.SelectedGacha_GachaElementIndex = result.winArgumentIndex;
             }
             catch (OperationCanceledException)
             {
