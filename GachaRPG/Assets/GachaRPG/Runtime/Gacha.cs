@@ -31,7 +31,7 @@ namespace GachaRPG
             element.GachaEquipmentIndex = index;
         }
 
-        public GachaResult Invoke()
+        public GachaResult Invoke(int instanceId)
         {
             var passiveSkills = new List<InstancePassiveSkill>();
             for (int i = 0; i < Elements.Count; i++)
@@ -42,7 +42,7 @@ namespace GachaRPG
                 }
                 passiveSkills.Add(Elements[i].Lottery());
             }
-            return new GachaResult(passiveSkills);
+            return new GachaResult(instanceId, passiveSkills);
         }
     }
 }
