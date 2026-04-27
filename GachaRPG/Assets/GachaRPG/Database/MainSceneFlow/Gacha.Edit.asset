@@ -14,47 +14,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: GachaRPG::GachaRPG.MainSceneFlow
   flows:
   - rid: 7457456554343661657
-  - rid: 7457456728243699788
-  - rid: 7457456728243699790
+  - rid: 7457456928611106892
   references:
     version: 2
     RefIds:
     - rid: 7457456554343661657
       type: {class: 'ClearList`1[[GachaRPG.MainSceneContext, GachaRPG]]', ns: GachaRPG.HKFeedback.Actions, asm: GachaRPG}
       data: 
-    - rid: 7457456728243699788
-      type: {class: 'Forget`1[[GachaRPG.MainSceneContext, GachaRPG]]', ns: HKFeedback.Actions, asm: HKFeedback}
+    - rid: 7457456928611106892
+      type: {class: 'SelectUserDataGachaGachaElementIndexAsync`1[[GachaRPG.MainSceneContext, GachaRPG]]', ns: GachaRPG.HKFeedback.Actions, asm: GachaRPG}
       data:
-        feedback:
-          rid: 7457456741319442511
-    - rid: 7457456728243699790
-      type: {class: 'CreateListButton`1[[GachaRPG.MainSceneContext, GachaRPG]]', ns: GachaRPG.HKFeedback.Actions, asm: GachaRPG}
-      data:
-        onCreatedFeedbacks:
-        - rid: 7457456728243699791
-        - rid: 7457456728243699795
-    - rid: 7457456728243699791
-      type: {class: 'SetText`1[[GachaRPG.MainButtonContext, GachaRPG]]', ns: GachaRPG.HKFeedback.Actions, asm: GachaRPG}
-      data:
-        message: "\u623B\u308B"
-    - rid: 7457456728243699795
-      type: {class: 'SubscribeOnClickAsObservable`1[[GachaRPG.MainButtonContext, GachaRPG]]', ns: GachaRPG.HKFeedback.Actions, asm: GachaRPG}
-      data:
-        feedbacks:
-        - rid: 7457456728243699796
-    - rid: 7457456728243699796
-      type: {class: 'PopFlowAsync`1[[GachaRPG.MainButtonContext, GachaRPG]]', ns: GachaRPG.HKFeedback.Actions, asm: GachaRPG}
-      data: 
-    - rid: 7457456741319442511
-      type: {class: 'List`1[[GachaRPG.MainSceneContext, GachaRPG]]', ns: HKFeedback.Actions, asm: HKFeedback}
-      data:
-        feedbacks:
-        - rid: 7457456741319442512
-        - rid: 7457456741319442513
-    - rid: 7457456741319442512
-      type: {class: 'SelectUserDataGachaIndexAsync`1[[GachaRPG.MainSceneContext, GachaRPG]]', ns: GachaRPG.HKFeedback.Actions, asm: GachaRPG}
-      data: 
-    - rid: 7457456741319442513
+        selectFeedbacks:
+        - rid: 7457456928611106893
+        cancelFeedbacks:
+        - rid: 7457456928611106894
+    - rid: 7457456928611106893
       type: {class: 'PushFlowAsync`1[[GachaRPG.MainSceneContext, GachaRPG]]', ns: GachaRPG.HKFeedback.Actions, asm: GachaRPG}
       data:
         flow: {fileID: 11400000, guid: fab588e3229a1a74298c60d4d25fbebf, type: 2}
+    - rid: 7457456928611106894
+      type: {class: 'PopFlowAsync`1[[GachaRPG.MainSceneContext, GachaRPG]]', ns: GachaRPG.HKFeedback.Actions, asm: GachaRPG}
+      data: 
