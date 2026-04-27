@@ -2,13 +2,15 @@ using HKFeedback;
 
 namespace GachaRPG
 {
-    public readonly struct MainSceneContext : IProvider<MainSceneContext>, IProvider<UIViewList>, IProvider<MainSceneController>, IProvider<UserData>, IProvider<GameRule>
+    public readonly struct MainSceneContext : IProvider<MainSceneContext>, IProvider<UIViewList>, IProvider<MainSceneController>, IProvider<UserData>, IProvider<GameRule>, IProvider<UIViewInformation>
     {
         public readonly MainSceneController MainSceneController { get; }
 
         public readonly UserData UserData { get; }
 
         public readonly UIViewList UIViewList { get; }
+
+        public readonly UIViewInformation UIViewInformation { get; }
 
         public readonly GameRule GameRule { get; }
 
@@ -22,12 +24,15 @@ namespace GachaRPG
 
         UserData IProvider<UserData>.Provide() => UserData;
 
-        public MainSceneContext(MainSceneController mainSceneController, GameRule gameRule, UserData userData, UIViewList uiViewList)
+        UIViewInformation IProvider<UIViewInformation>.Provide() => UIViewInformation;
+
+        public MainSceneContext(MainSceneController mainSceneController, GameRule gameRule, UserData userData, UIViewList uiViewList, UIViewInformation uiViewInformation)
         {
             MainSceneController = mainSceneController;
             GameRule = gameRule;
             UserData = userData;
             UIViewList = uiViewList;
+            UIViewInformation = uiViewInformation;
         }
     }
 }
