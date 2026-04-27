@@ -54,14 +54,14 @@ namespace GachaRPG
                     gacha.SetGachaElement(element.GachaEquipmentIndex, element);
                 }
             }
+            uiViewInformation.Initialize(CreateContext);
             PushFlowAsync(entryFlow).Forget();
         }
 
         public UniTask PushFlowAsync(MainSceneFlow flow)
         {
             flowStack.Push(flow);
-            var context = new MainSceneContext(this, gameRule, userData, uiViewList, uiViewInformation);
-            return flow.PlayAsync(context, destroyCancellationToken);
+            return flow.PlayAsync(CreateContext, destroyCancellationToken);
         }
 
         public UniTask PopFlowAsync()
@@ -71,8 +71,9 @@ namespace GachaRPG
                 return UniTask.CompletedTask;
             }
             flowStack.Pop();
-            var context = new MainSceneContext(this, gameRule, userData, uiViewList, uiViewInformation);
-            return flowStack.Peek().PlayAsync(context, destroyCancellationToken);
+            return flowStack.Peek().PlayAsync(CreateContext, destroyCancellationToken);
         }
+
+        private MainSceneContext CreateContext => new(this, gameRule, userData, uiViewList, uiViewInformation);
     }
 }
