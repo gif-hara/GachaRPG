@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace GachaRPG
 {
-    public class UIViewList : MonoBehaviour
+    public class UIViewList : UIViewBase
     {
         [SerializeField]
         private Transform buttonParent;
