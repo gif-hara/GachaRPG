@@ -836,6 +836,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e3788ac220c74c43b5a048bd56cbf24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: GachaRPG::GachaRPG.UIViewList
+--- !u!114 &617390206 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1597823351262299726, guid: b23f02e068a22f2419d74720c9e0ba34, type: 3}
+  m_PrefabInstance: {fileID: 1555662295}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5d6e3c5f17016e4e963d90e6c4fea81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GachaRPG::GachaRPG.UIViewInformation
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1040,6 +1051,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4210841247405966327, guid: b23f02e068a22f2419d74720c9e0ba34, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4210841247405966327, guid: b23f02e068a22f2419d74720c9e0ba34, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4210841247405966327, guid: b23f02e068a22f2419d74720c9e0ba34, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4210841247405966327, guid: b23f02e068a22f2419d74720c9e0ba34, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -1146,6 +1169,7 @@ MonoBehaviour:
     gachaEquipmentIndex: -1
   entryFlow: {fileID: 11400000, guid: 4fc98eb8cf4b9894fb5e2e6adb03ef68, type: 2}
   uiViewList: {fileID: 594722925}
+  uiViewInformation: {fileID: 617390206}
 --- !u!4 &1770371652
 Transform:
   m_ObjectHideFlags: 0
