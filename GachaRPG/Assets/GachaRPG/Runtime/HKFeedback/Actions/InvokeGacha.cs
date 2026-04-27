@@ -12,7 +12,7 @@ namespace GachaRPG.HKFeedback.Actions
         public UniTask PlayAsync(TContext context, CancellationToken cancellationToken)
         {
             var mainSceneContext = context.Provide();
-            var gachaResult = mainSceneContext.UserData.Gacha.Invoke();
+            var gachaResult = mainSceneContext.UserData.Gacha.Invoke(mainSceneContext.UserData.GachaResults.List.Count + 1);
             Debug.Log($"{gachaResult}");
             mainSceneContext.UserData.AddGachaResult(gachaResult);
             return UniTask.CompletedTask;
