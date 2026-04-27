@@ -2,8 +2,6 @@ using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using R3;
-using R3.Triggers;
-using UnityEngine.EventSystems;
 
 namespace GachaRPG
 {
@@ -11,22 +9,22 @@ namespace GachaRPG
     {
         public static UniTask<(int index, bool isCancel)> SelectGachaElementIndexAsync(this UIViewList uiViewList, Gacha gacha, CancellationToken cancellationToken)
         {
-            var buttons = new List<UIElementButton>();
+            var elementButtons = new List<UIElementButton>();
             for (var i = 0; i < gacha.Elements.Count; i++)
             {
                 var button = uiViewList.CreateButton();
                 var gachaElement = gacha.Elements[i];
                 button.ButtonText.SetText($"[{i}] {(gachaElement == null ? "-----" : gachaElement.GachaElement.ElementName)}");
-                buttons.Add(button);
+                elementButtons.Add(button);
             }
 
             var cancelButton = uiViewList.CreateButton();
             cancelButton.ButtonText.SetText("戻る");
 
-            var buttonSelectTask = UniTask.WhenAny(buttons.Select(x => x.OnClickAsObservable().FirstAsync(cancellationToken).AsUniTask()));
+            var elementButtonTask = UniTask.WhenAny(elementButtons.Select(x => x.OnClickAsObservable().FirstAsync(cancellationToken).AsUniTask()));
             var cancelTask = cancelButton.OnClickAsObservable().FirstAsync(cancellationToken).AsUniTask();
 
-            return UniTask.WhenAny(buttonSelectTask, cancelTask)
+            return UniTask.WhenAny(elementButtonTask, cancelTask)
                 .ContinueWith(result => (index: result.winArgumentIndex, isCancel: result.winArgumentIndex == 1));
         }
 
