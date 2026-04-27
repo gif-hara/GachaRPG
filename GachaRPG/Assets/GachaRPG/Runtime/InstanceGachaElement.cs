@@ -13,9 +13,18 @@ namespace GachaRPG
         [SerializeField]
         private int level;
 
+        [SerializeField]
+        private int gachaEquipmentIndex;
+
         private GachaElement cachedGachaElement;
 
         public GachaElement GachaElement => cachedGachaElement ??= TinyServiceLocator.Resolve<GameRule>().GachaElements.Get(gachaElementId);
+
+        public int GachaEquipmentIndex
+        {
+            get => gachaEquipmentIndex;
+            set => gachaEquipmentIndex = value;
+        }
 
         public InstancePassiveSkill Lottery()
         {
