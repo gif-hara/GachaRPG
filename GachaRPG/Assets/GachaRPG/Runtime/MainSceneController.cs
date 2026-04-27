@@ -18,9 +18,6 @@ namespace GachaRPG
         private InstanceGachaElement[] initialInstanceGachaElementsToUserData;
 
         [SerializeField]
-        private InstanceGachaElement[] initialInstanceGachaElementsToGacha;
-
-        [SerializeField]
         private MainSceneFlow entryFlow;
 
         [SerializeField]
@@ -47,10 +44,10 @@ namespace GachaRPG
             foreach (var element in initialInstanceGachaElementsToUserData)
             {
                 userData.AddInstanceGachaElement(element);
-            }
-            for (var i = 0; i < initialInstanceGachaElementsToGacha.Length; i++)
-            {
-                gacha.SetGachaElement(i, initialInstanceGachaElementsToGacha[i]);
+                if (element.GachaEquipmentIndex >= 0 && element.GachaEquipmentIndex < gameRule.GachaElementSize)
+                {
+                    gacha.SetGachaElement(element.GachaEquipmentIndex, element);
+                }
             }
             PushFlowAsync(entryFlow).Forget();
         }
