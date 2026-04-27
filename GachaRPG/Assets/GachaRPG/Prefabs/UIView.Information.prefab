@@ -185,9 +185,9 @@ MonoBehaviour:
   elements:
     list:
     - <Type>k__BackingField: 0
-      <Root>k__BackingField: {fileID: 3587101680749617041}
+      <Root>k__BackingField: {fileID: 996036934728592143}
     - <Type>k__BackingField: 1
-      <Root>k__BackingField: {fileID: 2153827826593789977}
+      <Root>k__BackingField: {fileID: 4148245683220251543}
 --- !u!1001 &5742653434763151155
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -285,11 +285,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b04707961d052854b8a9512d8c0ca9f1, type: 3}
---- !u!1 &2153827826593789977 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5931784006776749866, guid: b04707961d052854b8a9512d8c0ca9f1, type: 3}
+--- !u!114 &4148245683220251543 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8512796872163198116, guid: b04707961d052854b8a9512d8c0ca9f1, type: 3}
   m_PrefabInstance: {fileID: 5742653434763151155}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f38da0d92fbf6049960a6ad766b3a82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GachaRPG::GachaRPG.UIViewInformationGachaRoot
 --- !u!224 &8493200738125481156 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4210841247405966327, guid: b04707961d052854b8a9512d8c0ca9f1, type: 3}
@@ -392,11 +398,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c10085728d5e54d439a720c4691680ca, type: 3}
---- !u!1 &3587101680749617041 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5931784006776749866, guid: c10085728d5e54d439a720c4691680ca, type: 3}
+--- !u!114 &996036934728592143 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7945684042515893172, guid: c10085728d5e54d439a720c4691680ca, type: 3}
   m_PrefabInstance: {fileID: 7175958075244601531}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4503be4b26bff0f449e034a73ff8a21e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GachaRPG::GachaRPG.UIViewInformationRoot
 --- !u!224 &6483483706672472908 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4210841247405966327, guid: c10085728d5e54d439a720c4691680ca, type: 3}
