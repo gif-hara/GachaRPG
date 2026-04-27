@@ -1,11 +1,12 @@
 using System;
 using HK;
+using HKFeedback;
 using UnityEngine;
 
 namespace GachaRPG
 {
     [Serializable]
-    public class InstanceGachaElement
+    public class InstanceGachaElement : IProvider<InstanceGachaElement>
     {
         [SerializeField]
         private string gachaElementId;
@@ -14,11 +15,13 @@ namespace GachaRPG
         private int level;
 
         [SerializeField]
-        private int gachaEquipmentIndex;
+        private int gachaEquipmentIndex = -1;
 
         private GachaElement cachedGachaElement;
 
         public GachaElement GachaElement => cachedGachaElement ??= TinyServiceLocator.Resolve<GameRule>().GachaElements.Get(gachaElementId);
+
+        InstanceGachaElement IProvider<InstanceGachaElement>.Provide() => this;
 
         public int GachaEquipmentIndex
         {
