@@ -31,6 +31,8 @@ namespace GachaRPG
 
         public InstanceGachaElement SelectedInstanceGachaElement { get; set; }
 
+        public GachaResult SelectedGachaResult { get; set; }
+
         private void Start()
         {
             TinyServiceLocator.Register(gameRule)
