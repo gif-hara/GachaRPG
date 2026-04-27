@@ -15,12 +15,15 @@ namespace GachaRPG.HKFeedback.Actions
         [SerializeReference, SubclassSelector]
         private IFeedback<TContext>[] cancelFeedbacks;
 
+        [SerializeReference, SubclassSelector]
+        private ICondition<InstanceGachaElement> condition;
+
         public async UniTask PlayAsync(TContext context, CancellationToken cancellationToken)
         {
             try
             {
                 var mainSceneContext = context.Provide();
-                var result = await mainSceneContext.UIViewList.SelectInstanceGachaElementAsync(mainSceneContext.UserData.GachaElements, cancellationToken);
+                var result = await mainSceneContext.UIViewList.SelectInstanceGachaElementAsync(mainSceneContext.UserData.GachaElements, condition, cancellationToken);
                 if (!result.isCancel)
                 {
                     mainSceneContext.MainSceneController.SelectedInstanceGachaElement = result.instanceGachaElement;

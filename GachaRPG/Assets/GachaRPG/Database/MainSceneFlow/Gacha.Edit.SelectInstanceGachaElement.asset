@@ -29,6 +29,8 @@ MonoBehaviour:
         - rid: 7457456928611106900
         cancelFeedbacks:
         - rid: 7457456928611106901
+        condition:
+          rid: 7457456928611106908
     - rid: 7457456928611106899
       type: {class: 'SetUserDataGachaGachaElement`1[[GachaRPG.MainSceneContext, GachaRPG]]', ns: GachaRPG.HKFeedback.Actions, asm: GachaRPG}
       data: 
@@ -38,3 +40,7 @@ MonoBehaviour:
     - rid: 7457456928611106901
       type: {class: 'PopFlowAsync`1[[GachaRPG.MainSceneContext, GachaRPG]]', ns: GachaRPG.HKFeedback.Actions, asm: GachaRPG}
       data: 
+    - rid: 7457456928611106908
+      type: {class: 'EvaluateInstanceGachaElementGachaEquipmentIndex`1[[GachaRPG.InstanceGachaElement, GachaRPG]]', ns: GachaRPG, asm: GachaRPG}
+      data:
+        isEquipment: 0
