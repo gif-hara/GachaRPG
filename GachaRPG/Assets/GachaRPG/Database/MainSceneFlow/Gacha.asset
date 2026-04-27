@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Gacha
   m_EditorClassIdentifier: GachaRPG::GachaRPG.MainSceneFlow
   flows:
+  - rid: 7457456932056203344
   - rid: 7457456554343661657
   - rid: 7457456554343661643
   - rid: 7457456554343661658
@@ -78,3 +79,7 @@ MonoBehaviour:
       type: {class: 'PushFlowAsync`1[[GachaRPG.MainButtonContext, GachaRPG]]', ns: GachaRPG.HKFeedback.Actions, asm: GachaRPG}
       data:
         flow: {fileID: 11400000, guid: 16abc7f4723842748a509cf005af647c, type: 2}
+    - rid: 7457456932056203344
+      type: {class: 'ShowInformation`1[[GachaRPG.MainSceneContext, GachaRPG]]', ns: GachaRPG.HKFeedback.Actions, asm: GachaRPG}
+      data:
+        informationType: 1
