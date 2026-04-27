@@ -109,7 +109,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.25, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -40, y: -100}
+  m_SizeDelta: {x: -40, y: -200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3109865078643550016
 GameObject:
@@ -596,10 +596,6 @@ PrefabInstance:
     - target: {fileID: 1430204745842395038, guid: d774e293ef7f0fe4cb115c6be5f735ba, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5424022510253484916, guid: d774e293ef7f0fe4cb115c6be5f735ba, type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 8928135908380965699, guid: d774e293ef7f0fe4cb115c6be5f735ba, type: 3}
       propertyPath: m_Name
