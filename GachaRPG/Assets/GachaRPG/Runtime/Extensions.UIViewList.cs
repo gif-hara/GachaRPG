@@ -25,21 +25,27 @@ namespace GachaRPG
             var cancelTask = cancelButton.OnClickAsObservable().FirstAsync(cancellationToken).AsUniTask();
 
             return UniTask.WhenAny(elementButtonTask, cancelTask)
-                .ContinueWith(result => (index: result.winArgumentIndex, isCancel: result.winArgumentIndex == 1));
+                .ContinueWith(result => (index: result.result1.winArgumentIndex, isCancel: result.winArgumentIndex == 1));
         }
 
-        public static UniTask<InstanceGachaElement> SelectInstanceGachaElementAsync(this UIViewList uiViewList, InstanceGachaElement.DictionaryList elements, CancellationToken cancellationToken)
+        public static UniTask<(InstanceGachaElement instanceGachaElement, bool isCancel)> SelectInstanceGachaElementAsync(this UIViewList uiViewList, InstanceGachaElement.DictionaryList elements, CancellationToken cancellationToken)
         {
-            var buttons = new List<UIElementButton>();
+            var elementButtons = new List<UIElementButton>();
             foreach (var element in elements.List)
             {
                 var button = uiViewList.CreateButton();
                 button.ButtonText.SetText(element.GachaElement.ElementName);
-                buttons.Add(button);
+                elementButtons.Add(button);
             }
 
-            return UniTask.WhenAny(buttons.Select(x => x.OnClickAsObservable().FirstAsync(cancellationToken).AsUniTask()))
-                .ContinueWith(result => elements.List[result.winArgumentIndex]);
+            var cancelButton = uiViewList.CreateButton();
+            cancelButton.ButtonText.SetText("戻る");
+
+            var elementButtonTask = UniTask.WhenAny(elementButtons.Select(x => x.OnClickAsObservable().FirstAsync(cancellationToken).AsUniTask()));
+            var cancelTask = cancelButton.OnClickAsObservable().FirstAsync(cancellationToken).AsUniTask();
+
+            return UniTask.WhenAny(elementButtonTask, cancelTask)
+                .ContinueWith(result => (instanceGachaElement: elements.List[result.result1.winArgumentIndex], isCancel: result.winArgumentIndex == 1));
         }
     }
 }
