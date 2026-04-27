@@ -23,7 +23,12 @@ namespace GachaRPG
                 Debug.LogError($"Index {index} is out of range for gacha elements.");
                 return;
             }
+            if (Elements[index] != null)
+            {
+                Elements[index].GachaEquipmentIndex = -1;
+            }
             Elements[index] = element;
+            element.GachaEquipmentIndex = index;
         }
 
         public GachaResult Invoke()
