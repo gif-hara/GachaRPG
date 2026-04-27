@@ -23,6 +23,9 @@ namespace GachaRPG
         [SerializeField]
         private UIViewList uiViewList;
 
+        [SerializeField]
+        private UIViewInformation uiViewInformation;
+
         private UserData userData;
 
         private readonly Stack<MainSceneFlow> flowStack = new();
@@ -57,7 +60,7 @@ namespace GachaRPG
         public UniTask PushFlowAsync(MainSceneFlow flow)
         {
             flowStack.Push(flow);
-            var context = new MainSceneContext(this, gameRule, userData, uiViewList);
+            var context = new MainSceneContext(this, gameRule, userData, uiViewList, uiViewInformation);
             return flow.PlayAsync(context, destroyCancellationToken);
         }
 
@@ -68,7 +71,7 @@ namespace GachaRPG
                 return UniTask.CompletedTask;
             }
             flowStack.Pop();
-            var context = new MainSceneContext(this, gameRule, userData, uiViewList);
+            var context = new MainSceneContext(this, gameRule, userData, uiViewList, uiViewInformation);
             return flowStack.Peek().PlayAsync(context, destroyCancellationToken);
         }
     }
