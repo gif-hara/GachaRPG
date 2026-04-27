@@ -1024,15 +1024,13 @@ MonoBehaviour:
   initialInstanceGachaElementsToUserData:
   - gachaElementId: GachaElement.1
     level: 0
+    gachaEquipmentIndex: 0
   - gachaElementId: GachaElement.2
     level: 0
+    gachaEquipmentIndex: 1
   - gachaElementId: GachaElement.3
     level: 0
-  initialInstanceGachaElementsToGacha:
-  - gachaElementId: GachaElement.1
-    level: 0
-  - gachaElementId: GachaElement.2
-    level: 0
+    gachaEquipmentIndex: -1
   entryFlow: {fileID: 11400000, guid: 4fc98eb8cf4b9894fb5e2e6adb03ef68, type: 2}
   uiViewList: {fileID: 594722925}
 --- !u!4 &1770371652
