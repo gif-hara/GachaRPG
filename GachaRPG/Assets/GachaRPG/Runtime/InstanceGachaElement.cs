@@ -31,8 +31,7 @@ namespace GachaRPG
 
         public InstancePassiveSkill Lottery()
         {
-            var gachaElement = TinyServiceLocator.Resolve<GameRule>().GachaElements.Get(gachaElementId);
-            var passiveSkill = gachaElement.Lottery();
+            var passiveSkill = GachaElement.Lottery();
             return new InstancePassiveSkill(passiveSkill.name, level);
         }
 
