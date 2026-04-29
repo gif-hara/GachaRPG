@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using R3;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -24,6 +25,9 @@ namespace GachaRPG
         public override void Initialize(MainSceneContext context)
         {
             userData = context.UserData;
+            userData.Gacha.Broker.Receive<GachaEvent.InstanceGachaElementChanged>()
+                .Subscribe(this, static (_, @this) => @this.UpdateView())
+                .RegisterTo(destroyCancellationToken);
         }
 
         private void UpdateView()
