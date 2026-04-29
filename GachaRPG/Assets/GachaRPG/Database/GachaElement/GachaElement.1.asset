@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ab3781fa25ec6408e90b21ad24c3b7, type: 3}
   m_Name: GachaElement.1
   m_EditorClassIdentifier: GachaRPG::GachaRPG.GachaElement
-  <ElementName>k__BackingField: "\u30AC\u30C1\u30E3\u30A8\u30EC\u30E1\u30F3\u30C8.1"
+  <ElementName>k__BackingField: "\u30B4\u30D6\u30EA\u30F3\u306E\u9B42"
   elements:
   - <PassiveSkill>k__BackingField: {fileID: 11400000, guid: e95aeeeaab19d41449f9eda42386c219, type: 2}
     <Weight>k__BackingField: 100
