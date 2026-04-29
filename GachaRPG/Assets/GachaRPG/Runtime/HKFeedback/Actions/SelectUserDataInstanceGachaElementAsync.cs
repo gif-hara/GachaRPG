@@ -23,7 +23,8 @@ namespace GachaRPG.HKFeedback.Actions
             try
             {
                 var mainSceneContext = context.Provide();
-                var result = await mainSceneContext.UIViewList.SelectInstanceGachaElementAsync(mainSceneContext.UserData.GachaElements, condition, cancellationToken);
+                var result = await mainSceneContext.UIViewList.SelectInstanceGachaElementAsync(
+                    mainSceneContext.UserData.GachaElements, condition, true, true, cancellationToken);
                 if (!result.isCancel)
                 {
                     mainSceneContext.MainSceneController.SelectedInstanceGachaElement = result.instanceGachaElement;

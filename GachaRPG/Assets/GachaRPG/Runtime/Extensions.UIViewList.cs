@@ -9,7 +9,7 @@ namespace GachaRPG
 {
     public static partial class Extensions
     {
-        public static UniTask<(int index, bool isCancel)> SelectGachaElementIndexAsync(this UIViewList uiViewList, Gacha gacha, CancellationToken cancellationToken)
+        public async static UniTask<(int index, bool isCancel)> SelectGachaElementIndexAsync(this UIViewList uiViewList, Gacha gacha, CancellationToken cancellationToken)
         {
             var elementButtons = new List<UIElementButton>();
             for (var i = 0; i < gacha.Elements.Count; i++)
@@ -23,23 +23,37 @@ namespace GachaRPG
             var cancelButton = uiViewList.CreateButton();
             cancelButton.ButtonText.SetText("戻る");
 
-            if (elementButtons.Count == 0)
+            var elementButtonTask = elementButtons.Count > 0
+                ? UniTask.WhenAny(elementButtons.Select(x => x.OnClickAsObservable().FirstAsync(cancellationToken).AsUniTask()))
+                : UniTask.Never<(int winArgumentIndex, Unit)>(cancellationToken);
+            var cancelTask = cancelButton.OnClickAsObservable().FirstAsync(cancellationToken).AsUniTask();
+
+            var result = await UniTask.WhenAny(elementButtonTask, cancelTask);
+
+            if (result.winArgumentIndex == 0)
             {
-                return cancelButton.OnClickAsObservable().FirstAsync(cancellationToken).AsUniTask()
-                    .ContinueWith(_ => (index: -1, isCancel: true));
+                return (index: result.result1.winArgumentIndex, isCancel: false);
             }
             else
             {
-                var elementButtonTask = UniTask.WhenAny(elementButtons.Select(x => x.OnClickAsObservable().FirstAsync(cancellationToken).AsUniTask()));
-                var cancelTask = cancelButton.OnClickAsObservable().FirstAsync(cancellationToken).AsUniTask();
-
-                return UniTask.WhenAny(elementButtonTask, cancelTask)
-                    .ContinueWith(result => (index: result.result1.winArgumentIndex, isCancel: result.winArgumentIndex == 1));
+                return (index: -1, isCancel: true);
             }
         }
 
-        public static UniTask<(InstanceGachaElement instanceGachaElement, bool isCancel)> SelectInstanceGachaElementAsync(this UIViewList uiViewList, InstanceGachaElement.DictionaryList elements, ICondition<InstanceGachaElement> condition, CancellationToken cancellationToken)
+        public async static UniTask<(InstanceGachaElement instanceGachaElement, bool isCancel, bool isUnequipped)> SelectInstanceGachaElementAsync(
+            this UIViewList uiViewList,
+            InstanceGachaElement.DictionaryList elements,
+            ICondition<InstanceGachaElement> condition,
+            bool showCancelButton,
+            bool showUnequippedButton,
+            CancellationToken cancellationToken
+            )
         {
+            var unequippedButton = showUnequippedButton
+                ? uiViewList.CreateButton()
+                : null;
+            unequippedButton?.ButtonText.SetText("外す");
+
             var elementButtons = new List<(UIElementButton button, InstanceGachaElement instanceGachaElement)>();
             foreach (var element in elements.List)
             {
@@ -52,27 +66,40 @@ namespace GachaRPG
                 elementButtons.Add((button, element));
             }
 
-            var cancelButton = uiViewList.CreateButton();
-            cancelButton.ButtonText.SetText("戻る");
+            var cancelButton = showCancelButton
+                ? uiViewList.CreateButton()
+                : null;
+            cancelButton?.ButtonText.SetText("戻る");
 
-            if (elementButtons.Count == 0)
+            var elementButtonTask = elementButtons.Count > 0
+                ? UniTask.WhenAny(elementButtons.Select(x => x.button.OnClickAsObservable().FirstAsync(cancellationToken).AsUniTask()))
+                : UniTask.Never<(int winArgumentIndex, Unit)>(cancellationToken);
+            var cancelTask = cancelButton != null
+                ? cancelButton.OnClickAsObservable().FirstAsync(cancellationToken).AsUniTask()
+                : UniTask.Never<Unit>(cancellationToken);
+            var unequippedTask = unequippedButton != null
+                ? unequippedButton.OnClickAsObservable().FirstAsync(cancellationToken).AsUniTask()
+                : UniTask.Never<Unit>(cancellationToken);
+
+            var result = await UniTask.WhenAny(elementButtonTask, cancelTask, unequippedTask);
+
+            if (result.winArgumentIndex == 0)
             {
-                return cancelButton.OnClickAsObservable().FirstAsync(cancellationToken).AsUniTask()
-                    .ContinueWith(_ => (instanceGachaElement: (InstanceGachaElement)null, isCancel: true));
+                return (elementButtons[result.result1.winArgumentIndex].instanceGachaElement, isCancel: false, isUnequipped: false);
+            }
+            else if (result.winArgumentIndex == 1)
+            {
+                return (null, isCancel: true, isUnequipped: false);
             }
             else
             {
-                var elementButtonTask = UniTask.WhenAny(elementButtons.Select(x => x.button.OnClickAsObservable().FirstAsync(cancellationToken).AsUniTask()));
-                var cancelTask = cancelButton.OnClickAsObservable().FirstAsync(cancellationToken).AsUniTask();
-
-                return UniTask.WhenAny(elementButtonTask, cancelTask)
-                    .ContinueWith(result => (elementButtons[result.result1.winArgumentIndex].instanceGachaElement, isCancel: result.winArgumentIndex == 1));
+                return (null, isCancel: false, isUnequipped: true);
             }
         }
 
-        public static UniTask<(GachaResult gachaResult, bool isCancel)> SelectGachaResultAsync(this UIViewList uiViewList, GachaResult.DictionaryList gachaResults, ICondition<GachaResult> condition, CancellationToken cancellationToken)
+        public async static UniTask<(GachaResult gachaResult, bool isCancel)> SelectGachaResultAsync(this UIViewList uiViewList, GachaResult.DictionaryList gachaResults, ICondition<GachaResult> condition, CancellationToken cancellationToken)
         {
-            var resultButtons = new List<(UIElementButton button, GachaResult gachaResult)>();
+            var elementButtons = new List<(UIElementButton button, GachaResult gachaResult)>();
             foreach (var gachaResult in gachaResults.List)
             {
                 if (!condition.EvaluateSafe(gachaResult))
@@ -81,24 +108,26 @@ namespace GachaRPG
                 }
                 var button = uiViewList.CreateButton();
                 button.ButtonText.SetText($"[{gachaResult.InstanceId}]");
-                resultButtons.Add((button, gachaResult));
+                elementButtons.Add((button, gachaResult));
             }
 
             var cancelButton = uiViewList.CreateButton();
             cancelButton.ButtonText.SetText("戻る");
 
-            if (resultButtons.Count == 0)
+            var resultButtonTask = elementButtons.Count > 0
+                ? UniTask.WhenAny(elementButtons.Select(x => x.button.OnClickAsObservable().FirstAsync(cancellationToken).AsUniTask()))
+                : UniTask.Never<(int winArgumentIndex, Unit)>(cancellationToken);
+            var cancelTask = cancelButton.OnClickAsObservable().FirstAsync(cancellationToken).AsUniTask();
+
+            var result = await UniTask.WhenAny(resultButtonTask, cancelTask);
+
+            if (result.winArgumentIndex == 0)
             {
-                return cancelButton.OnClickAsObservable().FirstAsync(cancellationToken).AsUniTask()
-                    .ContinueWith(_ => (gachaResult: (GachaResult)null, isCancel: true));
+                return (elementButtons[result.result1.winArgumentIndex].gachaResult, isCancel: false);
             }
             else
             {
-                var resultButtonTask = UniTask.WhenAny(resultButtons.Select(x => x.button.OnClickAsObservable().FirstAsync(cancellationToken).AsUniTask()));
-                var cancelTask = cancelButton.OnClickAsObservable().FirstAsync(cancellationToken).AsUniTask();
-
-                return UniTask.WhenAny(resultButtonTask, cancelTask)
-                    .ContinueWith(result => (resultButtons[result.result1.winArgumentIndex].gachaResult, isCancel: result.winArgumentIndex == 1));
+                return (null, isCancel: true);
             }
         }
     }
