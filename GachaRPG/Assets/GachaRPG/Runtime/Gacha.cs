@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using SoulLike;
 using UnityEngine;
 
 namespace GachaRPG
@@ -6,6 +7,10 @@ namespace GachaRPG
     public sealed class Gacha
     {
         public List<InstanceGachaElement> Elements { get; }
+
+        private readonly MessageBroker broker = new();
+
+        public IMessageBroker Broker => broker;
 
         public Gacha(int elementSize)
         {
@@ -29,6 +34,7 @@ namespace GachaRPG
             }
             Elements[index] = element;
             element.GachaEquipmentIndex = index;
+            broker.Publish(new GachaEvent.InstanceGachaElementChanged(element));
         }
 
         public GachaResult Invoke(int instanceId)
