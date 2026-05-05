@@ -1,6 +1,8 @@
 using R3;
+using R3.Triggers;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace GachaRPG
@@ -14,5 +16,7 @@ namespace GachaRPG
         public TMP_Text ButtonText { get; private set; }
 
         public Observable<Unit> OnClickAsObservable() => Button.OnClickAsObservable();
+
+        public Observable<BaseEventData> OnSelectAsObservable() => Button.OnSelectAsObservable();
     }
 }
