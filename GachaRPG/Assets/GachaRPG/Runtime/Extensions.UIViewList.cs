@@ -4,6 +4,7 @@ using Cysharp.Threading.Tasks;
 using HKFeedback;
 using HKFeedback.Extensions;
 using R3;
+using HK;
 
 namespace GachaRPG
 {
@@ -97,7 +98,7 @@ namespace GachaRPG
             }
         }
 
-        public async static UniTask<(GachaResult gachaResult, bool isCancel)> SelectGachaResultAsync(this UIViewList uiViewList, GachaResult.DictionaryList gachaResults, ICondition<GachaResult> condition, CancellationToken cancellationToken)
+        public async static UniTask<(GachaResult gachaResult, bool isCancel)> SelectGachaResultAsync(this UIViewList uiViewList, GachaResult.DictionaryList gachaResults, ICondition<GachaResult> condition, IMessageBroker broker, CancellationToken cancellationToken)
         {
             var elementButtons = new List<(UIElementButton button, GachaResult gachaResult)>();
             foreach (var gachaResult in gachaResults.List)
@@ -109,6 +110,8 @@ namespace GachaRPG
                 var button = uiViewList.CreateButton();
                 button.ButtonText.SetText($"[{gachaResult.InstanceId}]");
                 elementButtons.Add((button, gachaResult));
+                button.OnPointerEnterAsObservable()
+                    .Subscribe((broker, gachaResult), static (_, state) => state.broker.Publish(new MainSceneEvent.GachaResultSelected(state.gachaResult)));
             }
 
             var cancelButton = uiViewList.CreateButton();
