@@ -17,6 +17,6 @@ namespace GachaRPG
 
         public Observable<Unit> OnClickAsObservable() => Button.OnClickAsObservable();
 
-        public Observable<BaseEventData> OnSelectAsObservable() => Button.OnSelectAsObservable();
+        public Observable<PointerEventData> OnPointerEnterAsObservable() => Button.OnPointerEnterAsObservable();
     }
 }
