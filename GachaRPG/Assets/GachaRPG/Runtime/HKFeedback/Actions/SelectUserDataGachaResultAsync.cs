@@ -23,7 +23,7 @@ namespace GachaRPG.HKFeedback.Actions
             try
             {
                 var mainSceneContext = context.Provide();
-                var result = await mainSceneContext.UIViewList.SelectGachaResultAsync(mainSceneContext.UserData.GachaResults, condition, cancellationToken);
+                var result = await mainSceneContext.UIViewList.SelectGachaResultAsync(mainSceneContext.UserData.GachaResults, condition, mainSceneContext.Broker, cancellationToken);
                 if (!result.isCancel)
                 {
                     mainSceneContext.MainSceneController.SelectedGachaResult = result.gachaResult;
