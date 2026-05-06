@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: ConfirmGachaResult
   m_EditorClassIdentifier: GachaRPG::GachaRPG.MainSceneFlow
   flows:
+  - rid: 3088188551927169102
   - rid: 7457456554343661657
   - rid: 7457456928611106918
   references:
@@ -20,6 +21,10 @@ MonoBehaviour:
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
+    - rid: 3088188551927169102
+      type: {class: 'ShowInformation`1[[GachaRPG.MainSceneContext, GachaRPG]]', ns: GachaRPG.HKFeedback.Actions, asm: GachaRPG}
+      data:
+        informationType: 2
     - rid: 7457456554343661657
       type: {class: 'ClearList`1[[GachaRPG.MainSceneContext, GachaRPG]]', ns: GachaRPG.HKFeedback.Actions, asm: GachaRPG}
       data: 
