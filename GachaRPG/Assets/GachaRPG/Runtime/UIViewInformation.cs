@@ -29,6 +29,7 @@ namespace GachaRPG
         {
             Root,
             GachaRoot,
+            GachaResult,
         }
 
         [Serializable]
