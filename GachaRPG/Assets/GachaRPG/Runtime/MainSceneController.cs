@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using HK;
 using R3;
+using HK;
 using UnityEngine;
 
 namespace GachaRPG
@@ -35,6 +36,8 @@ namespace GachaRPG
         public InstanceGachaElement SelectedInstanceGachaElement { get; set; }
 
         public GachaResult SelectedGachaResult { get; set; }
+
+        private readonly MessageBroker broker = new();
 
         private void Start()
         {
@@ -74,6 +77,6 @@ namespace GachaRPG
             return flowStack.Peek().PlayAsync(CreateContext, destroyCancellationToken);
         }
 
-        private MainSceneContext CreateContext => new(this, gameRule, userData, uiViewList, uiViewInformation);
+        private MainSceneContext CreateContext => new(this, gameRule, userData, uiViewList, uiViewInformation, broker);
     }
 }
