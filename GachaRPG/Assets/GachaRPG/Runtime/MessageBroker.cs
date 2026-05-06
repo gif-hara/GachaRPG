@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using R3;
 using UnityEngine;
 
-namespace SoulLike
+namespace HK
 {
     public interface IMessagePublisher
     {
